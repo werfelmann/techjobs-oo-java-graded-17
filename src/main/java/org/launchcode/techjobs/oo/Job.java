@@ -13,7 +13,6 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    private static final String noData = "Data not available";
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -111,11 +110,12 @@ public class Job {
         }
     }
 
+    //helper method for toString()
     private String checkField (Object field){
         if (field != null && !field.toString().isEmpty()) {
             return field.toString();
         } else {
-            return noData;
+            return "Data not available";
         }
     }
 }

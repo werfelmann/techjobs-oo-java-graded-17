@@ -38,7 +38,7 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
-        Job testJob = new Job();
+        Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         String testJobString = testJob.toString();
         assertTrue(testJobString.startsWith(System.lineSeparator()));
         assertTrue(testJobString.endsWith(System.lineSeparator()));
@@ -46,7 +46,7 @@ public class JobTest {
 
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
-        Job testJob = new Job();
+        Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         String testJobString = testJob.toString();
         assertTrue(testJobString.contains("ID: "));
         assertTrue(testJobString.contains("Name: "));
