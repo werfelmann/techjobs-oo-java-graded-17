@@ -13,6 +13,8 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
+    private static final String noData = "Data not available";
+
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
@@ -91,5 +93,29 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+
+        if (getName() == null && getEmployer() == null && getLocation() == null && getPositionType() == null && getCoreCompetency() == null) {
+            return "OOPS! This job does not seem to exist.";
+        } else {
+            return System.lineSeparator() +
+                    "ID: " + getId() + System.lineSeparator() +
+                    "Name: " + checkField(getName()) + System.lineSeparator() +
+                    "Employer: " + checkField(getEmployer()) + System.lineSeparator() +
+                    "Location: " + checkField(getLocation()) + System.lineSeparator() +
+                    "Position Type: " + checkField(getPositionType()) + System.lineSeparator() +
+                    "Core Competency: " + checkField(getCoreCompetency()) + System.lineSeparator();
+        }
+    }
+
+    private String checkField (Object field){
+        if (field != null && !field.toString().isEmpty()) {
+            return field.toString();
+        } else {
+            return noData;
+        }
     }
 }
